@@ -19,7 +19,7 @@ def abort_if_todo_doesnt_exist(todo_id):
 
 def check_if_list_is_empty():
     if not PARTY:
-	return 'No party members have been added, please add them using the "add_party_member" method'
+        return "No party members have been added, please add them using the 'add_party_member' method"
     else:
 	return PARTY
 
@@ -74,7 +74,7 @@ api.add_resource(Party, '/party', endpoint='party')
 
 @app.route('/')
 def home():
-	return "Hello, world"
+    return "Hello, world"
     # etc etc, flask app code
 
 if __name__ == '__main__':
