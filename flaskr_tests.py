@@ -1,6 +1,7 @@
 import unittest
 import flask_app
 
+
 class FlaskrTestCase(unittest.TestCase):
 
     def setUp(self):
