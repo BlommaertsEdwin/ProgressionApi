@@ -11,10 +11,17 @@ class FlaskrTestCase(unittest.TestCase):
     def tearDown(self):
 	    print "Tear Down"
 
-    def test_empty_db(self):
+    def test_default_home_page(self):
 	    print "First test"
 	    rv = self.app.get('/')
 	    assert 'Hello, world' in rv.data
+
+    def test_calculate_total_party_experience_threshold(self):
+	    print "Total party exprience threshold"
+	    rv = self.app.get('/total_party_threshold')
+	    assert 'No party members have been added, please add them using the "add_party_member" method' in rv.data
+
+
 
 if __name__ == '__main__':
     unittest.main()
