@@ -6,12 +6,12 @@ import tempfile
 class FlaskrTestCase(unittest.TestCase):
 
     def setUp(self):
-	    echo "Set Up"
+	    print "Set Up"
 
     def tearDown(self):
-	    echo "Tear Down"
+	    print "Tear Down"
 
     def test_empty_db(self):
-	    eacho "First test"
+	    print "First test"
 	    rv = self.app.get('/')
 	    assert b'No entries here so far' in rv.data
