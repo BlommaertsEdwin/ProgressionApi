@@ -19,31 +19,28 @@ def abort_if_todo_doesnt_exist(todo_id):
 
 def check_if_list_is_empty():
     if not PARTY:
-        return "No party members have been added, please add them using the 'add_party_member' method"
+	return "No party members have been added, please add them using the 'add_party_member' method"
     else:
 	return PARTY
 
-
 parser = reqparse.RequestParser()
 parser.add_argument('task')
-
 
 class Party(Resource):
     def get(self):
 	party = check_if_list_is_empty()
 	return party
-
 # Todo
 # shows a single todo item and lets you delete a todo item
 class Todo(Resource):
     def get(self, todo_id):
         abort_if_todo_doesnt_exist(todo_id)
-        return TODOS[todo_id]
+	return TODOS[todo_id]
 
     def delete(self, todo_id):
         abort_if_todo_doesnt_exist(todo_id)
         del TODOS[todo_id]
-        return '', 204
+	return '', 204
 
     def put(self, todo_id):
         args = parser.parse_args()
