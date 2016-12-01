@@ -12,3 +12,6 @@ class FlaskrTestCase(unittest.TestCase):
 	    print "First test"
 	    rv = self.app.get('/')
 	    assert b'No entries here so far' in rv.data
+
+if __name__ == '__main__':
+    unittest.main()
