@@ -14,7 +14,7 @@ PARTY = {}
 
 
 def abort_if_todo_doesnt_exist(todo_id):
-        if todo_id not in TODOS:
+	if todo_id not in TODOS:
                 abort(404, message="Todo {} doesn't exist".format(todo_id))
 
 def check_if_list_is_empty():
@@ -37,16 +37,16 @@ class Todo(Resource):
 		abort_if_todo_doesnt_exist(todo_id)
 		return TODOS[todo_id]
 
-def delete(self, todo_id):
-	abort_if_todo_doesnt_exist(todo_id)
-	del TODOS[todo_id]
-	return '', 204
+	def delete(self, todo_id):
+		abort_if_todo_doesnt_exist(todo_id)
+		del TODOS[todo_id]
+		return '', 204
 
-def put(self, todo_id):
-        args = parser.parse_args()
-        task = {'task': args['task']}
-        TODOS[todo_id] = task
-        return task, 201
+	def put(self, todo_id):
+        	args = parser.parse_args()
+        	task = {'task': args['task']}
+        	TODOS[todo_id] = task
+        	return task, 201
 
 
 # TodoList
@@ -54,7 +54,6 @@ def put(self, todo_id):
 class TodoList(Resource):
         def get(self):
                 return TODOS
-	
 	def post(self):
 		args = parser.parse_args()
 		todo_id = int(max(TODOS.keys()).lstrip('todo')) + 1
