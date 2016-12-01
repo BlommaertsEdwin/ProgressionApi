@@ -14,13 +14,13 @@ PARTY = {}
 
 
 def abort_if_todo_doesnt_exist(todo_id):
-	if todo_id not in TODOS:
+        if todo_id not in TODOS:
                 abort(404, message="Todo {} doesn't exist".format(todo_id))
 
 def check_if_list_is_empty():
         if not PARTY:
-		abort(404, message="No party members have been added, please add them using the 'add_party_member' method")
-	else:
+                abort(404, message="No party members have been added, please add them using the 'add_party_member' method")
+        else:
                 return PARTY
 
 parser = reqparse.RequestParser()
