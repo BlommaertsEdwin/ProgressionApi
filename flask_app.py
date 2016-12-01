@@ -10,14 +10,28 @@ TODOS = {
     'todo3': {'task': 'profit!'},
 }
 
+PARTY = {}
+
 
 def abort_if_todo_doesnt_exist(todo_id):
     if todo_id not in TODOS:
         abort(404, message="Todo {} doesn't exist".format(todo_id))
 
+def check_if_list_is_empty():
+    if not PARTY:
+	return 'No party members have been added, please add them using the "add_party_member" method'
+    else:
+	return PARTY
+
+
 parser = reqparse.RequestParser()
 parser.add_argument('task')
 
+
+class Party(Resource):
+    def get(self):
+	party = check_if_list_is_empty()
+	return party
 
 # Todo
 # shows a single todo item and lets you delete a todo item
@@ -56,6 +70,7 @@ class TodoList(Resource):
 ##
 api.add_resource(TodoList, '/todos', endpoint='todos')
 api.add_resource(Todo, '/todos/<todo_id>', endpoint='todo')
+api.add_resource(Party, '/party', endpoint='party')
 
 @app.route('/')
 def home():
