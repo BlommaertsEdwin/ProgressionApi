@@ -1,3 +1,5 @@
+import unittest
+
 class FlaskrTestCase(unittest.TestCase):
 
     def setUp(self):
