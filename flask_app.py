@@ -19,7 +19,7 @@ def abort_if_todo_doesnt_exist(todo_id):
 
 def check_if_list_is_empty():
         if not PARTY:
-		abort(404, message=u"No party members have been added, please add them using the 'add_party_member' method")
+		abort(404, message="No party members have been added, please add them using the 'add_party_member' method")
 	else:
                 return PARTY
 
