@@ -19,7 +19,7 @@ class FlaskrTestCase(unittest.TestCase):
     def test_calculate_total_party_experience_threshold(self):
 	print "Total party exprience threshold"
 	rv = self.app.get('/party')
-	assert "No party members have been added, please add them using the 'add_party_member' method'" in rv.data['message']
+	assert "No party members have been added, please add them using the 'add_party_member' method" in rv.data
 
 if __name__ == '__main__':
     unittest.main()
