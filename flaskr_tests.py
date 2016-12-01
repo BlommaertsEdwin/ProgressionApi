@@ -1,8 +1,10 @@
 import unittest
+import flask_app
 
 class FlaskrTestCase(unittest.TestCase):
 
     def setUp(self):
+	    self.app = flask_app.app.test_client()
 	    print "Set Up"
 
     def tearDown(self):
