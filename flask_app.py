@@ -31,27 +31,22 @@ parser.add_argument('task')
 class Party(Resource):
         def get(self):
                 return check_if_list_is_empty()
-
         def post(self):
                 return "Stub for posting"
 
 class PartyMember(Resource):
         def get(self, member_id):
-		abort_if_party_member_doesnt_exist(member_id)
-		return PARTY[member_id]
-
-	def delete(self, member_id):
-		abort_if_party_member_doesnt_exist(member_id)
-		del PARTY[member_id]
-		return '', 204
-
-	def put(self, member_id):
-		args = parser.parse_args()
-		PartyMember = {'name': args['name'], 'level': args['level']}
-		PARTY[member_id] = PartyMember
-		return task, 201
-        
-         
+                abort_if_party_member_doesnt_exist(member_id)
+                return PARTY[member_id]
+        def delete(self, member_id):
+                abort_if_party_member_doesnt_exist(member_id)
+                del PARTY[member_id]
+                return '', 204
+        def put(self, member_id):
+                args = parser.parse_args()
+                PartyMember = {'name': args['name'], 'level': args['level']}
+                PARTY[member_id] = PartyMember
+                return task, 201
 
 # Todo
 # shows a single todo item and lets you delete a todo item
