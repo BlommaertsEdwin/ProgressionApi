@@ -33,8 +33,7 @@ class Party(Resource):
                 return check_if_list_is_empty()
 
         def post(self):
-        
-        
+                return "Stub for posting"
 
 class PartyMember(Resource):
         def get(self, member_id):
