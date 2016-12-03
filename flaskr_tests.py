@@ -21,5 +21,10 @@ class FlaskrTestCase(unittest.TestCase):
 	rv = self.app.get('/party')
 	assert "No party members have been added, please add them using the 'add_party_member' method" in rv.data
 
+    def test_add_a_party_member(self):
+        print "Add a party member to the party"
+        partner_data = {'partner1' : {'name':'Elminster', 'level':'1'}}
+        rv = self.app.put(partner_data)
+
 if __name__ == '__main__':
     unittest.main()
