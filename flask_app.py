@@ -33,8 +33,12 @@ class Party(Resource):
                 check_if_list_is_empty()
                 return "Ok"
         def post(self):
-                return "Stub for posting"
-
+                args = parser.parse_args()
+                member_id = int(max(PARTY.keys()).lstrip('member')) + 1
+                todo_id = 'member%i' % member_id
+                PARTY[member_id] = {'name': args['name'], 'level': args['level']}
+                return PARTY[member_id], 201
+        
 class PartyMember(Resource):
         def get(self, member_id):
                 abort_if_party_member_doesnt_exist(member_id)
