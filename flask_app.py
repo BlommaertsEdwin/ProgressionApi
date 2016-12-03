@@ -30,7 +30,8 @@ parser.add_argument('task')
 
 class Party(Resource):
         def get(self):
-                return check_if_list_is_empty()
+                check_if_list_is_empty()
+                Return "Ok"
         def post(self):
                 return "Stub for posting"
 
