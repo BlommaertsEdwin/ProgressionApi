@@ -32,7 +32,11 @@ THRESHOLD_TABLE={
 
 def abort_if_party_member_doesnt_exist(member_id):
         if member_id not in PARTY:
-                abort(404, message="Todo {} doesn't exist".format(member_id))
+                abort(404, message="Todo {} doesn't exist!".format(member_id))
+
+def abort_if_difficulty_id_doesnt_exist(difficulty_id):
+        if difficulty_id not in ['easy', 'medium', 'hard', 'deadly']:
+                abort(404, message="Difficulty {} doesn't exist!".format(difficulty_id))
 
 
 parser = reqparse.RequestParser()
@@ -77,6 +81,7 @@ class Party(Resource):
 
 class Xptreshold(Resource):
         def get(self, difficulty_id):
+                abort_if_difficulty_id_doesnt_exist(difficulty_id)
                 print(difficulty_id)
                 party_threshold = 0
                 for member in PARTY.keys():
@@ -86,7 +91,7 @@ class Xptreshold(Resource):
 # Actually setup the Api resource routing here
 api.add_resource(Party, '/party', endpoint='party')
 api.add_resource(Member, '/party/<member_id>', endpoint='member')
-api.add_resource(Party, '/party/xptreshold/<difficulty_id>', endpoint='xptreshold')
+api.add_resource(Party, '/party/xptreshold/<string:difficulty_id>', endpoint='xptreshold')
 
 
 @app.route('/')
