@@ -88,7 +88,7 @@ class Xptreshold(Resource):
 # Actually setup the Api resource routing here
 api.add_resource(Party, '/party', endpoint='party')
 api.add_resource(Member, '/party/<member_id>', endpoint='member')
-api.add_resource(Party, '/party/xptreshold/<string:difficulty_id>')
+api.add_resource(Party, '/party/xptreshold/<string:difficulty_id>', endpoint='difficulty')
 
 
 @app.route('/')
