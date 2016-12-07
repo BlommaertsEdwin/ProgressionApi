@@ -76,11 +76,14 @@ class Party(Resource):
                 return PARTY[member_id], 201
 
 class Xptreshold(Resource):
-        def get(self, difficulty_id):
-                party_threshold = 0
-                for member in PARTY.keys():
-                        party_threshold = party_threshold + THRESHOLD_TABLE[PARTY[member]['level']][difficulty_id]
-                return party_threshold
+        def get(self, difficulty_id=None):
+                if difficulty_id is None:
+                        return "ooops"
+                else:
+                        party_threshold = 0
+                        for member in PARTY.keys():
+                                party_threshold = party_threshold + THRESHOLD_TABLE[PARTY[member]['level']][difficulty_id]
+                        return party_threshold
 
 ## Actually setup the Api resource routing here
 ##
