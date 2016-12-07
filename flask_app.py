@@ -77,6 +77,8 @@ class Party(Resource):
 
 class Xptreshold(Resource):
         def get(self, difficulty_id=None):
+                print(difficulty)
+                print ("We got here")
                 if difficulty_id is None:
                         return "ooops"
                 else:
