@@ -41,8 +41,8 @@ parser = reqparse.RequestParser()
 parser.add_argument('name', required=True, help="Name cannot be blank!")
 parser.add_argument('level', required=True, help="Character level cannot be blank!")
 
-# Todo
-# shows a single todo item and lets you delete a todo item
+# Member
+# Xhows a single Member and lets you delete a Member.
 class Member(Resource):
 	def get(self, member_id):
 		abort_if_party_member_doesnt_exist(member_id)
@@ -62,7 +62,7 @@ class Member(Resource):
 
 
 # TodoList
-# shows a list of all todos, and lets you POST to add new tasks
+# shows a list of all members, and lets you POST to add new tasks
 class Party(Resource):
         def get(self):
                 return PARTY
@@ -76,7 +76,7 @@ class Party(Resource):
                 PARTY[member_id] = {'name': args['name'], 'level': args['level']}
                 return PARTY[member_id], 201
 
-class Xptreshold(Resource):
+class Partytreshold(Resource):
         def get(self, difficulty_id):
                 abort_if_difficulty_id_doesnt_exist(difficulty_id)
                 print(difficulty_id)
@@ -88,7 +88,7 @@ class Xptreshold(Resource):
 # Actually setup the Api resource routing here
 api.add_resource(Party, '/party', endpoint='party')
 api.add_resource(Member, '/party/<member_id>', endpoint='member')
-api.add_resource(Party, '/party/xptreshold/<string:difficulty_id>', endpoint='difficulty')
+api.add_resource(Partytreshold, '/partythreshold/<string:difficulty_id>', endpoint='partytreshold')
 
 
 @app.route('/')
