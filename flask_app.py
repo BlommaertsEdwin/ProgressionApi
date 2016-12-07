@@ -13,7 +13,8 @@ def abort_if_party_member_doesnt_exist(member_id):
 
 
 parser = reqparse.RequestParser()
-parser.add_argument('member')
+parser.add_argument('name', required=True, help="Name cannot be blank!")
+parser.add_argument('level', required=True, help="Character level cannot be blank!")
 
 
 # Todo
