@@ -76,17 +76,17 @@ class Party(Resource):
                 return PARTY[member_id], 201
 
 class Xptreshold(Resource):
-        def get(self, difficulty):
+        def get(self, difficulty_id):
                 party_threshold = 0
                 for member in PARTY.keys():
-                        party_threshold = party_threshold + THRESHOLD_TABLE[PARTY[member]['level']][difficulty]
+                        party_threshold = party_threshold + THRESHOLD_TABLE[PARTY[member]['level']][difficulty_id]
                 return party_threshold
 
 ## Actually setup the Api resource routing here
 ##
 api.add_resource(Party, '/party', endpoint='party')
 api.add_resource(Member, '/party/<member_id>', endpoint='member')
-api.add_resource(Party, '/party/xptreshold/<difficulty>', endpoint='xptreshold')
+api.add_resource(Party, '/party/xptreshold/<difficulty_id>', endpoint='xptreshold')
 
 
 @app.route('/')
