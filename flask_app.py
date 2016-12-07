@@ -89,8 +89,8 @@ class TodoList(Resource):
 api.add_resource(TodoList, '/todos', endpoint='todos')
 api.add_resource(Todo, '/todos/<todo_id>', endpoint='todo')
 api.add_resource(Party, '/party', endpoint='party')
-api.add_resource(PartyMember, '/partymember', endpoint='partymember')
-api.add_resource(PartyMember, '/partymember/<member_id>')
+# api.add_resource(PartyMember, '/partymember', endpoint='partymember')
+api.add_resource(PartyMember, '/partymember/<member_id>', endpoint='partymember')
 
 @app.route('/')
 def home():
