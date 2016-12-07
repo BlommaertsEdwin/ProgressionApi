@@ -41,6 +41,7 @@ class Party(Resource):
         def get(self):
                 return PARTY
         def post(self):
+                args = parser.parse_args()
                 print(args)
                 if PARTY.keys():
                         member_id = int(max(PARTY.keys()).lstrip('member')) + 1
