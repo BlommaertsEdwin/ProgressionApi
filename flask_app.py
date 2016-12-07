@@ -86,7 +86,7 @@ class Xptreshold(Resource):
 ##
 api.add_resource(Party, '/party', endpoint='party')
 api.add_resource(Member, '/party/<member_id>', endpoint='member')
-api.add_resource(Party, 'party/xptreshold/<difficulty>', endpoint='xptreshold')
+api.add_resource(Party, '/party/xptreshold/<difficulty>', endpoint='xptreshold')
 
 
 @app.route('/')
