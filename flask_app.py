@@ -49,8 +49,8 @@ class Party(Resource):
 
 ## Actually setup the Api resource routing here
 ##
-api.add_resource(Party, '/todos', endpoint='party')
-api.add_resource(Member, '/todos/<todo_id>', endpoint='member')
+api.add_resource(Party, '/party', endpoint='party')
+api.add_resource(Member, '/member/<member_id>', endpoint='member')
 
 
 @app.route('/')
