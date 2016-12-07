@@ -29,7 +29,6 @@ THRESHOLD_TABLE={
         20: {'easy': 2800, 'medium': 5700, 'hard': 8500, 'deadly': 12700}
         }
 
-
 def abort_if_party_member_doesnt_exist(member_id):
         if member_id not in PARTY:
                 abort(404, message="Todo {} doesn't exist!".format(member_id))
@@ -38,11 +37,9 @@ def abort_if_difficulty_id_doesnt_exist(difficulty_id):
         if difficulty_id not in ['easy', 'medium', 'hard', 'deadly']:
                 abort(404, message="Difficulty {} doesn't exist!".format(difficulty_id))
 
-
 parser = reqparse.RequestParser()
 parser.add_argument('name', required=True, help="Name cannot be blank!")
 parser.add_argument('level', required=True, help="Character level cannot be blank!")
-
 
 # Todo
 # shows a single todo item and lets you delete a todo item
@@ -91,7 +88,7 @@ class Xptreshold(Resource):
 # Actually setup the Api resource routing here
 api.add_resource(Party, '/party', endpoint='party')
 api.add_resource(Member, '/party/<member_id>', endpoint='member')
-api.add_resource(Party, '/party/xptreshold/<string:difficulty_id>', endpoint='xptreshold')
+api.add_resource(Party, '/party/xptreshold/<string:difficulty_id>')
 
 
 @app.route('/')
