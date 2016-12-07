@@ -42,14 +42,14 @@ class Party(Resource):
                 return PARTY
         def post(self):
                 args = parser.parse_args()
-                print(args)
-                if PARTY.keys():
-                        member_id = int(max(PARTY.keys()).lstrip('member')) + 1
-                        member_id = 'member%i' % member_id
-                else:
-                        member_id = 'member1'
-                PARTY[member_id] = {'name': args['name'], 'level': args['level']}
-                return PARTY[member_id], 201
+                return args
+                #if PARTY.keys():
+                #        member_id = int(max(PARTY.keys()).lstrip('member')) + 1
+                #        member_id = 'member%i' % member_id
+                #else:
+                #        member_id = 'member1'
+                #PARTY[member_id] = {'name': args['name'], 'level': args['level']}
+                #return PARTY[member_id], 201
 
 ## Actually setup the Api resource routing here
 ##
